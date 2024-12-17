@@ -53,56 +53,126 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Register və Login</title>
     <style>
+        /*body {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            color: white;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }*/
+        /*body {
+            background: linear-gradient(120deg, #ff7eb3, #ff758c, #f06292);
+            color: white;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            background-size: 400% 400%; 
+            animation: gradientAnimation 10s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }*/
+        body {
+    background: linear-gradient(to bottom, #007BFF, #FF4136, #28A745);
+    /* Yuxarıdan aşağıya göy, qırmızı, yaşıl keçid */
+    color: white;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+
+        .container {
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
         .form-container {
             display: none;
         }
         .form-container.active {
             display: block;
         }
+        .toggle-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .toggle-buttons button {
+            margin: 0 5px;
+        }
+        input {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .btn-primary, .btn-success {
+            background-color: #6a11cb;
+            border: none;
+        }
+        .btn-primary:hover, .btn-success:hover {
+            background-color: #2575fc;
+        }
+        .alert {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+        }
     </style>
 </head>
 <body>
-<div class="container mt-5">
+<div class="container">
     <h2 class="text-center">Register və Login</h2>
     <?php if (!empty($message)): ?>
         <div class="alert alert-info"><?= $message ?></div>
     <?php endif; ?>
-    <div class="text-center mb-4">
+    <div class="toggle-buttons">
         <button class="btn btn-primary" id="show-register">Qeydiyyat</button>
         <button class="btn btn-secondary" id="show-login">Daxil Ol</button>
     </div>
     <!-- Register Form -->
     <div id="register-form" class="form-container">
-        <h3>Qeydiyyat</h3>
+        <h3 class="text-center">Qeydiyyat</h3>
         <form method="POST" action="index.php">
             <div class="mb-3">
-                <label for="name" class="form-label">Ad:</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Ad" required>
             </div>
             <div class="mb-3">
-                <label for="email" class="form-label">E-poçt:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
+                <input type="email" class="form-control" id="email" name="email" placeholder="E-poçt" required>
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">Şifrə:</label>
-                <input type="password" class="form-control" id="password" name="password" required>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Şifrə" required>
             </div>
-            <button type="submit" name="register" class="btn btn-success">Qeydiyyat</button>
+            <button type="submit" name="register" class="btn btn-success w-100">Qeydiyyat</button>
         </form>
     </div>
     <!-- Login Form -->
     <div id="login-form" class="form-container">
-        <h3>Daxil Ol</h3>
+        <h3 class="text-center">Daxil Ol</h3>
         <form method="POST" action="index.php">
             <div class="mb-3">
-                <label for="email" class="form-label">E-poçt:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
+                <input type="email" class="form-control" id="email" name="email" placeholder="E-poçt" required>
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">Şifrə:</label>
-                <input type="password" class="form-control" id="password" name="password" required>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Şifrə" required>
             </div>
-            <button type="submit" name="login" class="btn btn-primary">Daxil Ol</button>
+            <button type="submit" name="login" class="btn btn-primary w-100">Daxil Ol</button>
         </form>
     </div>
 </div>
